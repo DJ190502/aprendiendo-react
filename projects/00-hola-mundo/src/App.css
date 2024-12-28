@@ -28,15 +28,27 @@
     border-radius: 1000px;
 }
 
-.lk-btn-tw-followCard{
+.btn-tw-followCard{
     margin-left: 16px;
     border: 0;
     border-radius: 999px;
     padding: 6px 16px;
     font-weight: bold;
+    border: 1px solid #000;
+    background-color: rgb(0, 204, 255);
 }
 
-.lk-btn-tw-followCard:hover{
-    background-color: #09f;
+.btn-tw-followCard.is-following{
+    border: 1px solid red;
+    background-color: rgb(252, 121, 121);
+}
+
+.btn-tw-followCard:hover{
+    background-color: rgb(0, 38, 255);
+    transition: .3s ease background-color;
+}
+
+.btn-tw-followCard.is-following:hover{
+    background-color: red;
     transition: .3s ease background-color;
 }

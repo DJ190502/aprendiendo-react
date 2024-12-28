@@ -1,6 +1,8 @@
 import "./App.css";
 //Podemos poner parametros para cuando no se pasa ningun parametro
 export function TwitterFollowCard({ formatedUserName, photo, username, name, isFollowing }) {
+  const follow = isFollowing ? 'Siguiendo' : 'Seguir'
+  const buttonClassName = isFollowing ? 'btn-tw-followCard is-following' : 'btn-tw-followCard'
   return (
     <article className="tw-followCard">
       <header className="hd-tw-followCard">
@@ -15,8 +17,7 @@ export function TwitterFollowCard({ formatedUserName, photo, username, name, isF
         </div>
       </header>
       <aside className="aside-tw-followCard">
-        {isFollowing ? <button className="lk-btn-tw-followCard">Seguido</button> 
-        : <button className="lk-btn-tw-followCard">Seguir</button>}
+       <button className={buttonClassName}>{follow}</button>
       </aside>
     </article>
   );
