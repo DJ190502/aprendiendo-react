@@ -1,5 +1,5 @@
 import "./App.css";
-export function TwitterFollowCard({ formatedUserName, photo, username, name, isFollowing }) {
+export function TwitterFollowCard({ children, formatedUserName, photo, username, name, isFollowing }) {
   return (
     <article className="tw-followCard">
       <header className="hd-tw-followCard">
@@ -11,6 +11,7 @@ export function TwitterFollowCard({ formatedUserName, photo, username, name, isF
         <div className="div-tw-followCard">
           <strong className="name-tw-followCard">{name}</strong>
           <span className="user-tw-followCard">{formatedUserName}</span>
+          {children}
         </div>
       </header>
       <aside className="aside-tw-followCard">
