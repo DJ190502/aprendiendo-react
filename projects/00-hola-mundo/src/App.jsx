@@ -4,21 +4,12 @@ export function App() {
   const formatedUserName = (username) => <span>{`@${username}`}</span>
   return (
     <>
-      <TwitterFollowCard formatedUserName={formatedUserName("DJ190502")}
+      <TwitterFollowCard
+        formatedUserName={formatedUserName("DJ190502")}
         name="Daniel Jesus Avila Aguiar"
         photo="DJ190502"
-        isFollowing>
-          <TwitterFollowCard formatedUserName={formatedUserName("DJ190502")}
-        name="Daniel Jesus Avila Aguiar"
-        photo="DJ190502"
-        isFollowing>
-            <TwitterFollowCard formatedUserName={formatedUserName("DJ190502")} //Ejemplo de componentes anidados mediante children
-          name="Daniel Jesus Avila Aguiar"
-          photo="DJ190502"
-          isFollowing>
-            </TwitterFollowCard>
-        </TwitterFollowCard>
-      </TwitterFollowCard>
+        isFollowing
+      />
       <TwitterFollowCard
         formatedUserName={formatedUserName("Eduardo1306")}
         name="Eduardo"
