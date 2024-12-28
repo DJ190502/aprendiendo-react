@@ -1,6 +1,5 @@
 import "./App.css";
-export function TwitterFollowCard({ photo, username, name, isFollowing }) {
-  const addAt = (username) => `@${username}`
+export function TwitterFollowCard({ addAt, photo, username, name, isFollowing }) {
   return (
     <article className="tw-followCard">
       <header className="hd-tw-followCard">
