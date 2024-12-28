@@ -1,21 +1,13 @@
-export function App(){
+import "./App.css";
+import { TwitterFollowCard } from "./TwitterFollowCard";
+export function App() {
   return (
-    <article className="tw-followCard">
-      <header className="hd-tw-followCard">
-        <img 
-        className="avatar-tw-followCard"
-        alt="Avatar" 
-        src="https://unavatar.io/github/DJ190502" />
-        <div>
-          <strong>Daniel Jesus Avila</strong>
-          <span>@DJ190502</span>
-        </div> 
-      </header>
-      <aside>
-        <button>
-          Seguir
-        </button>
-      </aside>
-    </article>
-  )  
+    <>
+      <TwitterFollowCard
+        username="DJ190502"
+        name="Daniel Jesus Avila Aguiar"
+        photo="DJ190502"
+      />
+    </>
+  );
 }

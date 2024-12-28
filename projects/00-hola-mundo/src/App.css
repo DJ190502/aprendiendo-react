@@ -1,0 +1,35 @@
+.tw-followCard{
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-size: .8rem;
+}
+
+.hd-tw-followCard{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.div-tw-followCard{
+    display: flex;
+    flex-direction: column;
+}
+
+.user-tw-followCard{
+    opacity: .6;
+}
+
+.avatar-tw-followCard{
+    width: 48px;
+    height: 48px;
+    border-radius: 1000px;
+}
+
+.lk-btn-tw-followCard{
+    margin-left: 16px;
+    border: 0;
+    border-radius: 999px;
+    padding: 6px 16px;
+    font-weight: bold;
+}
