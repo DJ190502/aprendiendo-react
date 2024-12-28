@@ -3,6 +3,8 @@
     align-items: center;
     color: #fff;
     font-size: .8rem;
+    justify-content: space-between;
+    padding: 3px;
 }
 
 .hd-tw-followCard{
