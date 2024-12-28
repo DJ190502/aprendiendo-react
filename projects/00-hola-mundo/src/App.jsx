@@ -12,7 +12,7 @@ export function App() {
         name="Daniel Jesus Avila Aguiar"
         photo="DJ190502"
         isFollowing>
-            <TwitterFollowCard formatedUserName={formatedUserName("DJ190502")}
+            <TwitterFollowCard formatedUserName={formatedUserName("DJ190502")} //Ejemplo de componentes anidados mediante children
           name="Daniel Jesus Avila Aguiar"
           photo="DJ190502"
           isFollowing>
