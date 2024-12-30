@@ -37,15 +37,17 @@
     font-weight: 600;
 }
 
-/*.btn-tw-followCard.is-following{
-}*/
-
-.btn-tw-followCard:hover{
-    background-color: rgb(0, 38, 255);
-    transition: .3s ease background-color;
+.btn-tw-followCard.is-following{
+    border: 1px solid #bbb;
+    background: transparent;
+    color: #fff;
+    width: 120px;
 }
 
 .btn-tw-followCard.is-following:hover{
-    background-color: red;
+    background-color: rgba(255, 102, 102, 0.014);
     transition: .3s ease background-color;
+    color: red;
+    border: 1px solid;
 }
+
