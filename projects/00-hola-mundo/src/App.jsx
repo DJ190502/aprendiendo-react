@@ -3,7 +3,7 @@ import { TwitterFollowCard } from "./TwitterFollowCard";
 export function App() {
   const formatedUserName = (username) => <span>{`@${username}`}</span>
   return (
-    <>
+    <section className="App">
       <TwitterFollowCard
         formatedUserName={formatedUserName("DJ190502")}
         name="Daniel Jesus Avila Aguiar"
@@ -23,6 +23,6 @@ export function App() {
         isFollowing
       />
       
-    </>
-  );
+    </section>
+  )
 }
