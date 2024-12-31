@@ -1,8 +1,8 @@
 import { useState } from "react";
 import "./App.css";
 //Podemos poner parametros para cuando no se pasa ningun parametro
-export function TwitterFollowCard({ formatedUserName, photo, username, name}) {
-  const [isFollowing, setIsFollowing] = useState(false)
+export function TwitterFollowCard({ children, photo, username, name, initialIsFollowing}) {
+  const [isFollowing, setIsFollowing] = useState(initialIsFollowing)
 
   const follow = isFollowing ? 'Siguiendo' : 'Seguir'
   const buttonClassName = isFollowing ? 'btn-tw-followCard is-following' : 'btn-tw-followCard'
@@ -17,8 +17,8 @@ export function TwitterFollowCard({ formatedUserName, photo, username, name}) {
           src={`https://unavatar.io/github/${photo}`}
         />
         <div className="div-tw-followCard">
-          <strong className="name-tw-followCard">{name}</strong>
-          <span className="user-tw-followCard">{formatedUserName}</span>
+          {children}
+          <span className="user-tw-followCard">{username}</span>
         </div>
       </header>
       <aside className="aside-tw-followCard">
