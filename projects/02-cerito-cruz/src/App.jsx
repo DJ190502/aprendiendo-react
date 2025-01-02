@@ -1,35 +1,100 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+const TURNS = ['⭕️', '✖️'];
 
-function App() {
-  const [count, setCount] = useState(0)
+
+const Square = ({ children, updateBoard, isSelected, turno, index }) => {
+
+  const select = (x) => {
+    if (x === '⭕️') {
+      return `is-selected rojo`;
+    } else {
+      return `is-selected azul`;
+    }
+  };
+
+  const className = `square ${isSelected ? select(turno) : ''}`;
+
+  const handleClick = () => {
+    updateBoard(index);
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div onClick={handleClick} className={className}>
+      {children}
+    </div>
+  );
+};
+
+function App() {
+  const [board, setBoard] = useState(
+    Array(9).fill(null)
+  );
+  //El primer estado siempre va a 
+  // ser el tablero y el cambio va a ser el 
+  // cambio que le vas a hacer al teclado
+
+  const [turn, setTurn] = useState(TURNS[Math.floor(Math.random() * TURNS.length)]);
+
+  const [winner, setWinner] = useState(null)
+
+  const checkWinner = (boardtoCheck) =>{
+    const checkLine = (a,b,c) =>{
+      return (boardtoCheck[a] && boardtoCheck[a] === boardtoCheck[b] && boardtoCheck[a] === boardtoCheck[c]);
+    };
+
+    for (let i = 0; i < 3; i++) 
+    {
+      if (checkLine(i * 3, i * 3 + 1, i * 3 + 2)) return boardtoCheck[i*3]
+      if (checkLine(i, i + 3, i + 6)) return boardtoCheck[i]
+      if (checkLine(i, i + 4, i + 8)) return boardtoCheck[i]
+      if (checkLine(i, i + 2, i + 4)) return boardtoCheck[i]
+    }
+    return null;
+  }
+
+ 
+  const updateBoard = (index) => {
+    //Si esta ocupada la posicion no hacer nada
+    if (board[index] || winner) return;
+    //Actualizar el tablero con la jugada
+    const newBoard = [...board];
+    newBoard[index] = turn;
+    setBoard(newBoard);
+    //cambiar el turno
+    //revisar si hay ganador
+    const newWinner = checkWinner(newBoard);
+    if (newWinner) {
+      setWinner(newWinner);
+    }
+    const newTurn = turn === TURNS[0] ? TURNS[1] : TURNS[0];
+    setTurn(newTurn);
+    
+  };
+
+  return (
+    <main className='board'>
+      <h1>Cero o Cruz</h1>
+      <section className='game'>
+        {
+          board.map((_, index) => {
+            return (
+              <Square
+                index={index}
+                key={index}
+                updateBoard={updateBoard}
+              >
+                {board[index]}
+              </Square>
+            );
+          })
+        }
+      </section>
+      <section className='turn'>
+        <Square isSelected={turn === TURNS[0]} turno={turn}>{TURNS[0]}</Square>
+        <Square isSelected={turn === TURNS[1]} turno={turn}>{TURNS[1]}</Square>
+      </section>
+    </main>
+  );
 }
 
-export default App
+export default App;
